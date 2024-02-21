@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note|Edit Notes</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+</head>
+<body>
+   
+    <div class="container">
+        <div class="row mt-4" >
+            <div class="col-md-4 mt-5 mx-auto shadow p-3">
+                <h3 class="text-center">Edit|<span class="text-primary">Note</span></h3>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                <div class="mb-3">
+                    <label for="Input1" class="form-label"><strong>Note Title:</strong></label>
+                    <input type="text" class="form-control" name="title" id="Input1" placeholder="Title" value="{{data.title}}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Input2" class="form-label"><strong>Previous Date:&nbsp;{{data.date}}&nbsp;</strong></label>
+                    <input type="date" class="form-control" name="dt" id="Input2" placeholder="Enter Date" value="{{data.date}}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Note Description</strong></label>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" placeholder="Description" required>{{data.desc}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary" value="Update" name="subbtn">
+                </div>
+            </form>
+            </div>
+       
+        </div> <!--Row end-->
+   
+    </div>
+
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+</body>
+</html>

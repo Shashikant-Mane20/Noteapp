@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note|Login</title>
+    <link rel="stylesheet" href="{% static './assets/css/bootstrap.min.css' %}">
+
+  
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-5" >
+
+            <div class="col-md-4 mt-5 mx-auto shadow p-3">
+                <h3 class="text-center">User|<span class="text-primary">Login</span></h3>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                <div class="mb-3">
+                    <label for="Input1" class="form-label"><strong>Username:</strong></label>
+                    <input type="email" class="form-control" id="Input1" placeholder="Enter Email" name="uname">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Input2" class="form-label"><strong>Password:</strong></label>
+                    <input type="password" class="form-control" id="Input2" placeholder="Enter Password" name="upass">
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary" value="Login">
+                    New User? <a href="register" class="text-decoration-none"><strong>Register</strong></a>
+                </div>
+</form>
+{% if errmsg %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{errmsg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+            </div>
+        </div> <!--Row end-->
+    </div> <!--Container end-->
+
+    <script src="{% static './assets/js/popper.min.js' %}"></script>
+    <script src="{% static './assets/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
